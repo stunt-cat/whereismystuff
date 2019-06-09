@@ -9,7 +9,7 @@
 @section('content')
     <h1>This is where your stuff is!</h1>
         <ul>
-            <li>games</li>
+            <li><a href="/games">Games</a></li>
             <li>books</li>
         </ul>
 @endsection
