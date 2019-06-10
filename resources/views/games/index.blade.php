@@ -6,14 +6,10 @@
 
 	@foreach ($games as $game)
 		<ul>
-			<li><em>{{ $game->title }}</em></li>
-			<li>Description: {{ $game->description }}</li>
-			<li>Loaned: {{ $game->when_loaned }}</li>
-			<li>Location: {{ $game->location }}</li>
-			<a href="/games/{{ $game->id}}/edit">Edit game</a>
+			<li><a href="/games/{{ $game->id }}">{{ $game->title }}</a></li>
 		</ul>
 	@endforeach
 
-	<a href="/games/create">Add new game</a>
+<a class="btn btn-primary" href="/games/create" role="button">Add new game</a>
 
 @endsection

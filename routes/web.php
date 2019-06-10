@@ -18,16 +18,3 @@ Route::get('/about', 'PagesController@about');
 Route::get('/mystuff', 'PagesController@mystuff');
 
 Route::resource('games', 'GamesController');
-/*Route::get('/games', 'GamesController@index');
-
-Route::get('/games/create', 'GamesController@create');
-
-Route::get('/games/{id}', 'GamesController@show');
-
-Route::post('/games', 'GamesController@store');
-
-Route::get('/games/{id}/edit', 'GamesController@edit');
-
-Route::patch('/games/{id}', 'GamesController@update');
-
-Route::delete('/games/{id}', 'GamesController@destroy');*/

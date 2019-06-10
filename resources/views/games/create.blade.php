@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>create a game</title>
-</head>
-<body>
-	<h1>Add a new game</h1>
+@extends('layout')
+
+@section('content')
+
+<h1>Add a new game</h1>
 	<form method="POST" action="/games">
 		{{ csrf_field() }}
 		<div>
@@ -23,5 +21,5 @@
 			<button type="submit">Create game</button>
 		</div>
 	</form>
-</body>
-</html>
+
+@endsection

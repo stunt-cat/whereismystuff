@@ -19,44 +19,33 @@ class GamesController extends Controller
     	return view ('games.create');
     }
 
-    public function show($id)
+    public function show(Game $game)
     {
-    	return view ('games.show');
+    	return view ('games.show', compact('game'));
     }
 
     public function store()
     {
-    	$game = new Game();
-
-    	$game->title = request('title');
-    	$game->description = request('description');
-    	$game->when_loaned = request('when_loaned');
-    	$game->location = request('location');
-
-    	$game->save();
-
+    	Game::create(request(['title', 'description', 'when_loaned', 'location']));
+    	
     	return redirect('/games');
     }
 
-    public function edit($id)
+    public function edit(Game $game)
     {
-    	$game = Game::findOrFail($id);
     	return view ('games.edit', compact('game'));
     }
 
-    public function update($id)
+    public function update(Game $game)
     {
-    	 $game = Game::findOrFail($id);
-    	 $game->title = request('title');
-    	 $game->description = request('description');
-    	 $game->save();
-
+    	$game->update(request('title', 'description', 'when_loaned', 'location'));
+    	
     	return redirect('/games');
     }
 
-    public function destroy($id)
+    public function destroy(Game $game)
     {
-    	Game::findOrFail($id)->delete();
+    	$game->delete();
     	
     	return redirect('/games');
     }
