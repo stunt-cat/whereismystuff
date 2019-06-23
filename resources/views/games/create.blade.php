@@ -5,20 +5,20 @@
 <h1>Add a new game</h1>
 	<form method="POST" action="/games">
 		{{ csrf_field() }}
-		<div>
-			<input type="text" name ="title" placeholder="Game title">
+		<div class="form-group">
+			<input class="form-control" type="text" name ="title" placeholder="Game title">
 		</div>
-		<div>
-			<textarea name="description" placeholder="Game description"></textarea>
+		<div class="form-group">
+			<textarea class="form-control" name="description" placeholder="Game description"></textarea>
 		</div>
-		<div>
-			<input type="text" name ="when_loaned" placeholder="When loaned">
+		<div class="form-group">
+			<input class="form-control" type="text" name ="when_loaned" placeholder="When loaned">
 		</div>
-		<div>
-			<input type="text" name ="location" placeholder="Location">
+		<div class="form-group">
+			<input class="form-control" type="text" name ="location" placeholder="Location">
 		</div>
-		<div>
-			<button type="submit">Create game</button>
+		<div class="form-group">
+			<button class="btn btn-success" type="submit">Create game</button>
 		</div>
 	</form>
 

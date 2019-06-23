@@ -8,26 +8,18 @@
 		@method('PATCH')
 		@csrf
 
-		<div class="field">
-			<label class="label" for="title">Title</label>
-
-			<div class="control">
-				<input type="text" class="input" name="title" placeholder="Title" value="{{ $game->title }}">
-			</div>
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" class="form-control" name="title" value="{{$game->title }}">
 		</div>
 
-		<div class="field">
+		<div class="form-group">
 			<label class="label" for="description">Description</label>
-
-			<div class="control">
-				<textarea name="description" class="textarea">{{ $game->description }}</textarea>
-			</div>
+			<textarea name="description" class="form-control">{{ $game->description }}</textarea>
 		</div>
 
-		<div class="field">
-			<div class="control">
-				<button type="submit" class="button is-link">Update Game</button>
-			</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-success">Update</button>
 		</div>
 	</form>
 
@@ -35,10 +27,12 @@
 		@method('DELETE')
 		@csrf
 
-		<div class="control">
-			<button type="submit" class="button is-link">Delete Game</button>
+		<div class="form-group">
+			<button type="submit" class="btn btn-danger">Delete</button>
 		</div>
 	</form>
+	
+	<a href="/games/{{ $game->id}}" class="btn btn-primary">Back</a>
 
 
 @endsection
