@@ -4,7 +4,9 @@
 
 <h1 class="title">List of Games</h1>
 
-<form>
+<form method="GET" action="/games/filter">
+
+
 	<div class="row">
 		<div class="col">
 			<input type="text" class="form-control" name="title" placeholder="Title">
@@ -13,7 +15,7 @@
 			<input type="text" class="form-control" name="description" placeholder="Description">
 		</div>
 		<div class="col">
-			<input type="button" class="btn btn-primary" value="Filter">
+			<input type="submit" class="btn btn-primary" value="Filter">
 		</div>
 	</div>
 </form>

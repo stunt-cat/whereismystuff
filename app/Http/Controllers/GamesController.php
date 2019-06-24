@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Game;
 
@@ -9,10 +10,23 @@ class GamesController extends Controller
 {
     public function index()
     {
-    	$games = Game::all();
-
+        $games = Game::all();
+    
     	return view ('games.index', ['games' => $games]);
     }
+
+    public function filter($title = null, $description = null)
+    {
+        $title = Request::get('title');
+        $description = Request::get('description');
+        $games = DB::table('games')
+                ->where('title', 'like', '%'.$title.'%')
+                ->where('description', 'like', '%'.$description.'%')
+                ->get();
+
+        return view ('games.index', ['games' => $games]);
+    }
+
 
     public function create()
     {

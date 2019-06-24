@@ -17,4 +17,5 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/mystuff', 'PagesController@mystuff');
 
+Route::get('/games/filter', 'GamesController@filter');
 Route::resource('games', 'GamesController');
