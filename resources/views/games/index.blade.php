@@ -39,6 +39,8 @@
 	</tbody>
 </table>
 
+{{ $games->links() }}
+
 <a class="btn btn-primary" href="/games/create" role="button">Add new game</a>
 
 @endsection
