@@ -12,19 +12,25 @@ class GamesController extends Controller
     {
         $games = Game::all();
     
-    	return view ('games.index', ['games' => $games]);
+    	return view ('games.index', [
+            'games' => $games,
+            'title' => null,
+            'description' => null,
+        ]);
     }
 
-    public function filter($title = null, $description = null)
+    public function filter(Request $request)
     {
-        $title = Request::get('title');
-        $description = Request::get('description');
         $games = DB::table('games')
-                ->where('title', 'like', '%'.$title.'%')
-                ->where('description', 'like', '%'.$description.'%')
+                ->where('title', 'like', '%'.$request->title.'%')
+                ->where('description', 'like', '%'.$request->description.'%')
                 ->get();
 
-        return view ('games.index', ['games' => $games]);
+        return view ('games.index', [
+            'games' => $games,
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
     }
 
 

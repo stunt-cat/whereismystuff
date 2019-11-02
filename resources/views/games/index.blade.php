@@ -9,10 +9,10 @@
 
 	<div class="row">
 		<div class="col">
-			<input type="text" class="form-control" name="title" placeholder="Title">
+			<input type="text" class="form-control" name="title" placeholder="Title" value="{{$title}}">
 		</div>
 		<div class="col">
-			<input type="text" class="form-control" name="description" placeholder="Description">
+			<input type="text" class="form-control" name="description" placeholder="Description" value="{{$description}}">
 		</div>
 		<div class="col">
 			<input type="submit" class="btn btn-primary" value="Filter">
