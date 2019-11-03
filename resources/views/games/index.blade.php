@@ -5,8 +5,6 @@
 <h1 class="title">List of Games</h1>
 
 <form method="GET" action="/games/filter">
-
-
 	<div class="row">
 		<div class="col">
 			<input type="text" class="form-control" name="title" placeholder="Title" value="{{$title}}">
