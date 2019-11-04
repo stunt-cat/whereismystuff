@@ -22,6 +22,7 @@
 	<thead>
 		<tr>
 			<th>Title</th>
+			<th>Manufacturer</th>
 			<th>Description</th>
 			<th></th>
 		</tr>
@@ -30,6 +31,7 @@
 	@foreach ($games as $game)
 		<tr>
 			<td>{{ $game->title }}</td>
+			<td>{{ $game->manufacturer->name }}</td>
 			<td>{{ $game->description }}</td>
 			<td><a href="/games/{{ $game->id }}" class="btn btn-primary">View</a></td>
 		</tr>

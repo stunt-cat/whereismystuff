@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Game;
+use App\Manufacturer;
 
 class GamesController extends Controller
 {
@@ -21,8 +22,7 @@ class GamesController extends Controller
 
     public function filter(Request $request)
     {
-        $games = DB::table('games')
-                ->where('title', 'like', '%'.$request->title.'%')
+        $games = Game::where('title', 'like', '%'.$request->title.'%')
                 ->where('description', 'like', '%'.$request->description.'%')
                 ->get();
 
@@ -36,7 +36,8 @@ class GamesController extends Controller
 
     public function create()
     {
-    	return view ('games.create');
+        $manufacturers = Manufacturer::pluck('name', 'id');
+    	return view ('games.create', ['manufacturers' => $manufacturers]);
     }
 
     public function show(Game $game)
@@ -46,7 +47,7 @@ class GamesController extends Controller
 
     public function store()
     {
-    	Game::create(request(['title', 'description', 'when_loaned', 'location']));
+    	Game::create(request(['title', 'manufacturer_id', 'description', 'when_loaned', 'location']));
     	
     	return redirect('/games');
     }

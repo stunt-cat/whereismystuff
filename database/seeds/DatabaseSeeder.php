@@ -11,6 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Manufacturer::class, 5)->create();
+        factory(App\Manufacturer::class)->create([
+        	'name' => 'Days of Wonder',
+        	'description' => 'Family friendly classics',
+        ]);
+        factory(App\Manufacturer::class)->create([
+        	'name' => 'Fantasy Flight Games',
+        	'description' => 'Epic production values',
+        ]);
+        factory(App\Manufacturer::class)->create([
+        	'name' => 'Ravensburger',
+        	'description' => 'Old School',
+        ]);
     }
 }

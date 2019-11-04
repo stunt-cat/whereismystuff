@@ -19,7 +19,7 @@ class CreateGamesTable extends Migration
             $table->text('description');
             $table->text('when_loaned');
             $table->string('location');
-            $table->string('manufacturer');
+            $table->integer('manufacturer_id');
             $table->timestamps();
         });
     }
