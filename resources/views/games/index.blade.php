@@ -13,6 +13,14 @@
 			<input type="text" class="form-control" name="description" placeholder="Description" value="{{$description}}">
 		</div>
 		<div class="col">
+			<select name="manufacturer_id" class="form-control">
+				<option value="">All</option>
+				@foreach($manufacturers as $manufacturer)
+					<option @if ($manufacturer->id == $manufacturer_id) selected="selected" @endif value="{{$manufacturer->id}}">{{$manufacturer->name}}</option>
+				@endforeach
+			</select>
+		</div>
+		<div class="col">
 			<input type="submit" class="btn btn-primary" value="Filter">
 		</div>
 	</div>

@@ -12,24 +12,38 @@ class GamesController extends Controller
     public function index()
     {
         $games = Game::all();
+        $manufacturers = Manufacturer::all();
     
     	return view ('games.index', [
             'games' => $games,
+            'manufacturers' => $manufacturers,
             'title' => null,
             'description' => null,
+            'manufacturer_id' => null,
         ]);
     }
 
     public function filter(Request $request)
     {
-        $games = Game::where('title', 'like', '%'.$request->title.'%')
+        if($request->manufacturer_id){
+            $games = Game::where('title', 'like', '%'.$request->title.'%')
+                ->where('description', 'like', '%'.$request->description.'%')
+                ->where('manufacturer_id', '=', $request->manufacturer_id)
+                ->get();
+            } else {
+                $games = Game::where('title', 'like', '%'.$request->title.'%')
                 ->where('description', 'like', '%'.$request->description.'%')
                 ->get();
+            }
+        
+        $manufacturers = Manufacturer::all();
 
         return view ('games.index', [
             'games' => $games,
+            'manufacturers' => $manufacturers,
             'title' => $request->title,
             'description' => $request->description,
+            'manufacturer_id' => $request->manufacturer_id,
         ]);
     }
 
